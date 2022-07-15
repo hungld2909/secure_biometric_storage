@@ -305,7 +305,7 @@ class SecureBiometricStoragePlugin : FlutterPlugin, ActivityAware, MethodCallHan
         }
 
     private fun canAuthenticate(): CanAuthenticateResponse {
-        val response: Int = biometricManager.canAuthenticate(BIOMETRIC_STRONG)
+        val response: Int = biometricManager.canAuthenticate(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
 
         return CanAuthenticateResponse.values().firstOrNull { it.code == response }
             ?: throw Exception(
